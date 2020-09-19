@@ -42,8 +42,25 @@ with open(csvpath, newline="") as csvfile:
 
 average_month_change = total_month_change / (total_months - 1)
         
+print("Financial Analysis")
+print("---------------------------")
 print("Total Months: " + str(total_months))
 print("Total: $" + str(total_profit_loss))
-print("Average Change: $" + str(average_month_change))
+print("Average Change: $" + str(round(average_month_change,2)))
 print("Greatest Increase " + greatest_increase_month + " $" + str(greatest_increase))
 print("Greatest Decrease " + greatest_decrease_month + " $" + str(greatest_decrease))
+
+Text_output = (
+"Financial Analysis\n"
+"---------------------------\n"
+f"Total Months: {total_months}\n"
+f"Total: ${total_profit_loss}\n"
+f"Average Change: ${round(average_month_change,2)}\n"
+f"Greatest Increase  + greatest_increase_month + {greatest_increase}\n"
+f"Greatest Decrease  + greatest_decrease_month + {greatest_decrease}\n"
+)
+
+file="PyBank_analysis.txt"
+with open(file, "w") as text:
+    text.write(Text_output)
+    text.close

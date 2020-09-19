@@ -26,7 +26,7 @@ with open(csvpath, newline='') as csvfile:
         else:
             OTooley = OTooley + 1
 
-    Kahn_Percent = Khan / Total
+    Khan_Percent = Khan / Total
     Correy_Percent = Correy / Total
     Li_Percent = Li / Total
     OTooley_Percent = OTooley / Total
@@ -42,8 +42,31 @@ with open(csvpath, newline='') as csvfile:
     else:
         Winner_name = "O'Tooley"
 
+print("Election Results")
+print("---------------------------")
 print(f"Total Votes: {Total}")
-print(f"Correy: {Correy_Percent}({Correy})")
-print(f"Li: {Li_Percent}({Li})")
-print(f"O'Tooley: {OTooley_Percent}({OTooley})")
+print("---------------------------")
+print(f"Khan: {round(Khan_Percent*100,3)}%({Khan})")
+print(f"Correy: {round(Correy_Percent*100,3)}%({Correy})")
+print(f"Li: {round(Li_Percent*100,3)}%({Li})")
+print(f"O'Tooley: {round(OTooley_Percent*100,3)}%({OTooley})")
+print("---------------------------")
 print(f"Winner: {Winner_name}")
+
+Text_output = (
+"Election Results\n"
+"---------------------------\n"
+f"Total Votes: {Total}\n"
+"---------------------------\n"
+f"Khan: {round(Khan_Percent*100,3)}%({Khan})\n"
+f"Correy: {round(Correy_Percent*100,3)}%({Correy})\n"
+f"Li: {round(Li_Percent*100,3)}%({Li})\n"
+f"O'Tooley: {round(OTooley_Percent*100,3)}%({OTooley})\n"
+"---------------------------\n"
+f"Winner: {Winner_name}\n"
+)
+
+file="PyPoll_analysis.txt"
+with open(file, "w") as text:
+    text.write(Text_output)
+    text.close
